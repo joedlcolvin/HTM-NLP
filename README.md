@@ -1,5 +1,5 @@
 # HTM-NLP
-Using HTM for NLP.
+This project aims to use hierarchical temporal memory (HTM) to learn the similarity of English words.
 
 # Using python 2
 1. Install, create and activate virtualenv (https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/26/python-virtual-env/)
