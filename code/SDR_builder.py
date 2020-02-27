@@ -56,10 +56,9 @@ class SDR_builder:
                     start_idx = 0
                     curr_level = 0
                     for synsets in synset_structure_with_idx.values():
-                        if curr_level == i:
-                            break
-                        start_idx += len(synsets)
-                        curr_level += 1
+                        if curr_level < i:
+                            start_idx += len(synsets)
+                            curr_level += 1
                     sdr.add(start_idx + bit_pos)
 
             # add other lemma relations
