@@ -1,5 +1,5 @@
 from nltk.corpus import wordnet as wn
-from sqlitedict import SqliteDict
+import sqlite3
 
 class SDR_builder:
 
@@ -91,17 +91,23 @@ class SDR_builder:
 
     # convert synset structure to SDR
     def structure_to_sdr(self, synset_structure_with_idx):
-        self.words_sdr = SqliteDict('data/words_sdr.sqlite', autocommit=True)
+        con = sqlite3.connect("data/words_sdr.db")
+        con.execute(
+            "CREATE TABLE sdrtable (word, sdr)")
+        sql = ''' INSERT INTO sdrtable(word, sdr)
+                  VALUES(?,?) '''
         for word in wn.words():
-            self.words_sdr[word] = self.word_to_sdr(word, synset_structure_with_idx)
-        self.words_sdr.close()
+            cursor = con.cursor()
+            sdr = ' '.join(str(idx) for idx in self.word_to_sdr(word, synset_structure_with_idx))
+            cursor.execute(sql, (word, sdr))
+        con.commit()
+        con.close()
 
     def build_all_sdr(self):
         synset_structure = self.get_all_synset_structure()
         synset_structure_map = self.build_synset_map(synset_structure)
         self.structure_to_sdr(synset_structure_map)
-        return self.words_sdr
 
 if __name__ == "__main__":
     sdr_builder = SDR_builder()
-    sdr = sdr_builder.build_all_sdr()
+    sdr_builder.build_all_sdr()
