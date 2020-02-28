@@ -14,3 +14,7 @@ This project aims to use hierarchical temporal memory (HTM) to learn the similar
 1. You must first create a folder called "data" in the project home directory.
 Then, at the project home directory, run "code/SDR_builder.py". The script is compatible
 with any Python version >= 2.7. The SDR database will be stored under "data/".
+
+## Measuring SDR similarity
+1. Go to the project home directory and run "python code/test_similarity.py word1 word2" to measure the similarity of word1 and word2.
+2. Currently support SDR overlap score and WordNet path_similarity.
