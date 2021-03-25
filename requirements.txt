@@ -34,7 +34,7 @@ pytest==3.0.7
 pytest-cov==2.5.0
 pytest-xdist==1.16.0
 python-dateutil==2.1
-PyYAML==3.10
+PyYAML==5.4
 pyzmq==18.1.1
 scandir==1.10.0
 simplegeneric==0.8.1
