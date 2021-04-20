@@ -25,7 +25,7 @@ prettytable==0.7.2
 prompt-toolkit==1.0.18
 psutil==1.0.1
 ptyprocess==0.6.0
-py==1.8.1
+py==1.10.0
 pycapnp==0.6.3
 Pygments==2.5.2
 PyMySQL==0.6.2
