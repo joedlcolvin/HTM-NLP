@@ -14,7 +14,7 @@ ipython-genutils==0.2.0
 jupyter-client==5.3.4
 jupyter-core==4.6.1
 mock==1.0.1
-numpy==1.12.1
+numpy==1.22.0
 nupic==1.0.5
 nupic.bindings==1.0.6
 ordereddict==1.1
